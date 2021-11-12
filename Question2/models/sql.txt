@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS searchs (
+	id SERIAL NOT NULL PRIMARY KEY,
+	keyword TEXT NOT NULL,
+	total_result INT NOT NULL,
+	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+	updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS details (
+	id SERIAL NOT NULL PRIMARY KEY,
+	title TEXT NOT NULL,
+	type varchar(64) NOT NULL,
+	imdb_id varchar(32) NOT NULL,
+	url_link varchar(128) NOT NULL,
+	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+	updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+SELECT * FROM searchs;
+SELECT * FROM details;
+

@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS users (
+	Id SERIAL PRIMARY KEY,
+	username VARCHAR(256) NOT NULL,
+	parent INT,
+	FOREIGN KEY (parent) REFERENCES users(Id)
+);
+
+INSERT INTO users(username,parent) VALUES('Handrawan',2),('Puspita Rini',1),('Hengky Darmawan',NULL);
+
+SELECT a.id as id,a.username as username,b.username as parent_username FROM users a LEFT JOIN users b ON a.id=b.parent;
